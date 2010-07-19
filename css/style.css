@@ -44,8 +44,8 @@ blockquote {
 	font-size: 0.8em;
 	margin: 1.5em;
 	padding: 0 0 0 25px;
-	background: transparent url('../images/quote.png') top left no-repeat;
-	_filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./images/quote.png', sizingMethod='crop');
+	background: transparent url('../images/quote.png') top left no-repeat !important;
+	background: transparent url('../images/quote.gif') top left no-repeat;
 	opacity: 0.8;
 	filter: alpha(opacity=80);
 	-moz-opacity: 0.80;
