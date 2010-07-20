@@ -195,7 +195,6 @@ blockquote {
 	left: 0;
 	margin: 0;
 	overflow: hidden;
-	_filter: alpha(opacity=5);
 	z-index: -10;
 }
 
@@ -204,8 +203,4 @@ blockquote {
 	position: relative;
 	top: 0;
 	left: 0;	
-	opacity: 0.05;
-	filter: alpha(opacity=5);
-	-moz-opacity: 0.05;
-	-khtml-opacity: 0.05;
 }
