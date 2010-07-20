@@ -23,8 +23,8 @@
 	}
 
 	$.fn.scrollBg.defaults  = {
-		speed: 20,
-		interval: 100,
+		speed: 10,
+		interval: 250,
 		imageHeight: 0
 	}
 })(jQuery);

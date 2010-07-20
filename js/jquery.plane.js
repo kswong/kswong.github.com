@@ -9,12 +9,14 @@
 		var height = $(document).height();
 		var plane = $(opts.planeDiv).clone().addClass("flyingPlane");
 
-		function randPlane(target) {
+		this.css("opacity", opts.opacity);
+
+		function randPlane(instance) {
 			var h = Math.floor((height-opts.planeHeight)/opts.planeHeight);
-			target.css({"top": Math.floor(Math.random()*h) * opts.planeHeight ,
+			instance.css({"top": Math.floor(Math.random()*h) * opts.planeHeight ,
 				 	   "left": Math.floor(-Math.random()*(width-opts.planeWidth)*opts.planeNum)
 				 	  });					  
-			return target;
+			return instance;
 		};
 		
 		for (i = 0; i < opts.planeNum; ++i) {
@@ -49,6 +51,6 @@
 		planeNum: 5,
 		planeWidth: 100,
 		planeHeight: 42,
-		opacity: .5
+		opacity: .05
 	}
 })(jQuery);
