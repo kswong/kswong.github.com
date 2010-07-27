@@ -2,19 +2,26 @@
 
 (function($) {
 	$.fn.scrollBg = function(options) {
-		var opts = $.extend({}, $.fn.scrollBg.defaults, options);
-		var deltaPx = Math.ceil(opts.speed*opts.interval/1000);
-		var current = 0;		
+		var opts = $.extend(true, {}, $.fn.scrollBg.defaults, options);
+		var deltaX = Math.ceil(opts.speed.x*opts.interval/1000);
+		var deltaY = Math.ceil(opts.speed.y*opts.interval/1000);
+		var currentX = 0, currentY = 0;		
 		var target = this;
 
 		this.css("background-repeat","repeat");
 
 		function scroll(){
-			current -= deltaPx;
-			if (current <= -opts.imageHeight){
-				current += opts.imageHeight;
+			currentX += deltaX;
+			currentY += deltaY;
+			if (currentX <= -opts.imageSize.x || currentX >= opts.imageSize.x){
+				currentX += opts.imageSize.x;
+				currentX %= opts.imageSize.x;
 			}
-			target.css("background-position","0 "+current+"px");		
+			if (currentY <= -opts.imageSize.y || currentY >= opts.imageSize.y){
+				currentY += opts.imageSize.y;
+				currentY %= opts.imageSize.y;
+			}
+			target.css("background-position",currentX+"px "+currentY+"px");		
 		}
 
 		setInterval(scroll, opts.interval);
@@ -23,8 +30,8 @@
 	}
 
 	$.fn.scrollBg.defaults  = {
-		speed: 10,
+		speed: {x: 0, y: 0},
 		interval: 250,
-		imageHeight: 0
+		imageSize: {x: 0, y: 0}
 	}
 })(jQuery);
