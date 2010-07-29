@@ -1,6 +1,6 @@
 body {
 	margin: 0;
-	background: transparent url('../images/cloud.png') repeat scroll;
+	background: #1a1c25 url('../images/cloud.png') repeat scroll;
 	font-size: 100%;
 	font-family: "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
 	line-height: 1.5;
@@ -107,5 +107,5 @@ blockquote {
 }
 
 .rain {
-	background: transparent url('../images/rain.png') repeat scroll;
+	background: #121821 url('../images/rain.png') repeat scroll;
 }
