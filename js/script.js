@@ -1,7 +1,7 @@
 // Main script
 
 jQuery(document).ready(function($) {
-	$.getJSON('http://query.yahooapis.com/v1/public/yql', {format: 'json', q: 'select * from weather.forecast where location in ("CHXX0049") and u="c"'},
+	$.getJSON('http://query.yahooapis.com/v1/public/yql?callback=?', {format: 'json', q: 'select * from weather.forecast where location in ("CHXX0049") and u="c"'},
 		function(data) {
  			var pattern = /(storm|rain|shower)/i;
 			var weather = data.query.results.channel.item.condition.text;
