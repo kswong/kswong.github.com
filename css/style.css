@@ -1,0 +1,122 @@
+body {
+	margin: 0;
+	background: #1a1c25 url('../images/cloud.png') repeat scroll;
+	font-size: 110%;
+	font-family: 'Coming Soon', cursive;
+	line-height: 1.5;
+	color:#777; 
+	font-variant: small-caps;
+}
+
+h1,h2,h3,h4,h5,h6 { 
+	color: #666;	
+	font-weight: bold;
+	clear: both; 
+}
+
+h1,h2 {
+	font-family: 'Lobster', cursive;
+	text-shadow: #555555 2px 2px 2px;
+}
+
+h1 { font-size: 6em; line-height:1.1; letter-spacing:0.05em; }
+h2 { font-size: 4.5em; line-height:1.1; letter-spacing:0.05em; }
+h3 { font-size: 2.5em; }
+h4 { font-size: 1.5em; }
+h5 { font-size: 1.25em; }
+h6 { font-size: 1em; }
+
+a {	
+	font-weight:bold;
+	text-decoration: none;
+}
+
+a:link, a:visited {
+	color: #058;	
+}
+
+a:hover, a:active {
+	color: #08E;
+	text-decoration: underline;
+}
+
+ul, ol {
+	padding-left: 2em;
+}
+
+blockquote {
+	zoom: 1;
+	font-style: normal;
+	font-size: 0.8em;
+	margin: 1.5em;
+	padding: 0 0 0 25px;
+	background: transparent url('../images/quote.png') top left no-repeat !important;
+	background: transparent url('../images/quote.gif') top left no-repeat;
+	opacity: 0.8;
+	filter: alpha(opacity=80);
+	-moz-opacity: 0.80;
+	-khtml-opacity: 0.80;
+}
+
+.round-corners-5 {
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;	
+	-moz-border-radius: 5px;
+}
+
+.round-corners-10 {
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-khtml-border-radius: 10px;	
+	-moz-border-radius: 10px;
+}
+
+.round-corners-30 {
+	border-radius: 30px;
+	-webkit-border-radius: 30px;
+	-khtml-border-radius: 30px;	
+	-moz-border-radius: 30px;
+}
+
+.clear {
+	clear: both;
+}
+
+.pngfix img {
+	_display: none;
+}
+
+.pngfix img.alt {
+	display: none;
+	_display: block;
+}
+			
+.container {
+	width: 100%; 	
+	position: relative; 
+	margin: 0 auto;
+}
+
+
+#planeBg {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: 0;
+	overflow: hidden;
+	z-index: -10;
+}
+
+#planeBg .plane {
+	display: none;
+	position: relative;
+	top: 0;
+	left: 0;	
+}
+
+.rain {
+	background: #121821 url('../images/rain.png') repeat scroll;
+}
