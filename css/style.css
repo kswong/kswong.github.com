@@ -4,7 +4,7 @@ body {
 	font-size: 110%;
 	font-family: 'Coming Soon', cursive;
 	line-height: 1.5;
-	color:#BBB; 
+	color:#999; 
 	font-variant: small-caps;
 }
 
@@ -32,11 +32,11 @@ a {
 }
 
 a:link, a:visited {
-	color: #058;	
+	color: #079;	
 }
 
 a:hover, a:active {
-	color: #08E;
+	color: #09F;
 	text-decoration: underline;
 }
 

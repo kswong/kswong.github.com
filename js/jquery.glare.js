@@ -67,7 +67,7 @@
 	$.fn.glare.defaults  = {
 		interval: 100,
 		repeatDelay: 5000,
-		minOpacity: 0.6,
+		minOpacity: 0.7,
 		maxOpacity: 1.0,
 	}
 })(jQuery);
