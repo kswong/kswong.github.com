@@ -2,7 +2,7 @@ body {
 	margin: 0;
 	background: #1a1c25 url('../images/cloud.png') repeat scroll;
 	font-size: 110%;
-	font-family: 'Coming Soon', cursive;
+	font-family: 'Macondo', cursive;
 	line-height: 1.5;
 	color:#999; 
 	font-variant: small-caps;
@@ -15,12 +15,12 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 h1,h2 {
-	font-family: 'Lobster', cursive;
+	font-family: 'Merienda One', cursive;
 	text-shadow: #555555 2px 2px 2px;
 }
 
-h1 { font-size: 6em; line-height:1.1; letter-spacing:0.05em; }
-h2 { font-size: 4.5em; line-height:1.1; letter-spacing:0.05em; }
+h1 { font-size: 5.5em; line-height:1.1; letter-spacing:0.05em; }
+h2 { font-size: 3.5em; line-height:1.1; letter-spacing:0.05em; }
 h3 { font-size: 2.5em; }
 h4 { font-size: 1.5em; }
 h5 { font-size: 1.25em; }
