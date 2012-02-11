@@ -10,6 +10,42 @@ function isInteger(n) {
    return typeof(n) == 'number' && n % 1 == 0;
 }
 
+function getVector(m) {
+	if (m.cols() == 1) {
+		return m.col(1);
+	} else if (m.rows() == 1) {
+		return m.row(1);
+	} else {
+		return NaN;
+	}
+}
+
+function dot(a, b) {
+	if (isObject(a) && isObject(b)) {
+		var v1 = getVector(a)
+		var v2 = getVector(b);
+		
+		if (isObject(v1) && isObject(v2)) {	
+			return v1.dot(v2);
+		}
+	}
+	
+	return NaN;
+}
+
+function cross(a, b) {
+	if (isObject(a) && isObject(b)) {
+		var v1 = getVector(a)
+		var v2 = getVector(b);
+		
+		if (isObject(v1) && isObject(v2)) {	
+			return v1.cross(v2);
+		}
+	}
+	
+	return NaN;
+}
+
 function power(a, b) {		
 	if (b < 0) {
 		return power(a.inverse(), -b);

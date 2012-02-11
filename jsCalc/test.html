@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="JS Calculator" /> 
+	<title>JS Calculator</title>
+
+	<!-- Import jQuery -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+
+	<script src="utility.js" type="text/javascript"></script>
+	<script src="sylvester.js" type="text/javascript"></script>
+	<script src="parser.js" type="text/javascript"></script>	
+	<script src="script.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+<h1>A JS calculator using jison & sylvester.js</h1>
+<p>
+  <textarea name="output" id="output" cols="70" rows="5"></textarea>
+</p>
+<p>
+  Input: <input type="text" id="input" style="width:500px" value="2*pi + det([1,2;3,4])" />
+  <input type="submit" id="submit" value="Eval" />
+</p>
+<p>
+	Reference: <br/>
+  <textarea name="constants" id="output" cols="30" rows="10">
+Pre-defined constants:
+
+e = 2.71828...
+pi = 3.14159...
+
+Matrix notation:
+
+To define a m*n matrix with element Aij, use:
+[A11, A12, ..., A1n ; 
+ A21, A22, ..., A2n ;
+         ... ; 
+ Am1, Am2, ..., Amn]
+(rows are separated by ';' and elements in a row are separated by ',')
+</textarea>
+  <textarea name="functions" id="output" cols="35" rows="10">
+Real functions:
+
+abs(x)
+asin(x)
+acos(x)
+atan(x)
+atan2(x, y)
+floor(x)
+ceil(x)
+round(x)
+exp(x)
+log(x)	
+max(x1, x2, ..., xn)	
+min(x1, x2, ..., xn)		
+random()
+sin(x)
+cos(x)
+tan(x)
+
+Matrix functions:
+
+I(n)
+zeros(n)
+augment(m1, m2)
+inv(m)
+det(m)
+REF(m)
+rank(m)
+tr(m)
+transpose(m)
+
+Vector functions:
+dot(v1, v2)
+cross(v1, v2)
+</textarea>
+</p>
+</body>
+
+</html>

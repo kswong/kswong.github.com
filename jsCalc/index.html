@@ -1,141 +1,74 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-
-<head>
-	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="JS Calculator" /> 
-	<title>JS Calculator</title>
-
-	<!-- Import jQuery -->
+	<head> 
+	<title>JS Calculator</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />   
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js" type="text/javascript"></script>
 
 	<script src="utility.js" type="text/javascript"></script>
 	<script src="sylvester.js" type="text/javascript"></script>
-	<script src="parser.js" type="text/javascript"></script>
-	<script type="text/javascript">
-		var symTab = {};
-		var functions = {
-					"abs":Math.abs,
-					"asin":Math.asin,
-					"acos":Math.acos,
-					"atan":Math.atan,
-					"atan2":Math.atan2,
-					"floor":Math.floor,
-					"ceil":Math.ceil,
-					"round":Math.round,
-					"exp": Math.exp,	
-					"log": Math.log,	
-					"max": Math.max,	
-					"min": Math.min,	
-					"random": Math.random,	
-					"sin": Math.sin,	
-					"cos": Math.cos,
-					"tan": Math.tan,
-					'I': function(n) { return Matrix.I(n); },
-					'zeros': function(m, n) { return Matrix.Zero(m, n) },
-					'augment': function(a, b) { return a.augment(b) },
-				            'inv': function(m) { return m.inv() },
-					'det': function(m) { return m.det() },
-					'REF': function(m) { return m.toRightTriangular() },
-					'rank': function(m) { return m.rank() },
-					'tr': function(m) { return m.tr() },
-					'transpose': function(m) { return m.transpose() },
-				};
-	
-  		$(document).ready(function() {
-			var trials = 0;
+	<script src="parser.js" type="text/javascript"></script>	
+	<script src="script.js" type="text/javascript"></script>
+</head> 
+<body> 
+
+<div data-role="page" id="main" data-theme="c">
+
+	<div data-role="header" data-theme="b">
+		<h1>JS calculator</h1>
+		<a href="#setting" data-icon="gear" class="ui-btn-right">Setting</a>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		<textarea name="output" id="output" style="height: 150px"></textarea>
+		<div data-role="fieldcontain">
+			<label for="input">Input: </label>
+			<input type="text" name="input" id="input" value="" />
+		</div>
+		<a href="#" id="submit" data-role="button" data-icon="check">Evaluate</a>		
+	</div><!-- /content -->
+
+</div><!-- /page -->
+
+<div data-role="page" id="setting" data-add-back-btn="true" data-theme="c">
+
+	<div data-role="header" data-theme="b">
+		<h1>Setting</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">	
 			
-			function parse() {
-  				var input = $('#input').val();	
-				var ans = parser.parse(input);
-				if (typeof(ans) == "object") {
-					ans = ans.inspect().split('\n').join('\n\t\t');
-				}
-				
-				var result = "\nIn[" + trials + "]:  \t" + input;
-				result += "\nOut[" + trials + "]: \t" + ans + "\n";
-				result += $('#output').val();
-				$('#output').val(result);	
-				$('#input').val("");
-				++trials;	
-			}
+     <div data-role="fieldcontain">
+		<fieldset data-role="controlgroup">
+			<legend>Angle measurement:</legend>
+            <input type="radio" name="angle" id="degree" value="d" />
+            <label for="degree">Degree</label>
+            <input type="radio" name="angle" id="radian" value="r" checked="checked" />
+            <label for="radian">Radian</label>
+            <input type="radio" name="angle" id="gradian" value="g" />
+            <label for="gradian">Gradian</label>
+		</fieldset>
+ 
+ 		<fieldset data-role="controlgroup">
+			<legend>Number format:</legend>
+            <input type="radio" name="format" id="fixed" value="f" />
+            <label for="fixed">Fixed precision</label>
+            <input type="radio" name="format" id="sci" value="s" checked="checked" />
+            <label for="sci">Scientific notation as appropriate</label>
+		</fieldset>
+               
+        <div data-role="fieldcontain">
+			<label for="prec">Precision (number of decimal place): </label>
+			<input type="range" name="prec" id="prec" value="6" min="0" max="10" data-highlight="true" />
+		</div>
+     </div>
 
-			$('#input').bind('keydown', function (e) {
-				var key = e.keyCode || e.which;
-				if (key === 13) { 
-					parse();
-					 e.preventDefault();
-				}
-            
-			});    
+	</div><!-- /content -->
 
-			$('#submit').click(function() { parse(); });
-		});
+</div><!-- /page -->
 
-	</script>
-
-</head>
-
-<body>
-<h1>A JS calculator using jison & sylvester.js</h1>
-<p>
-  <textarea name="output" id="output" cols="70" rows="5"></textarea>
-</p>
-<p>
-  Input: <input type="text" id="input" style="width:500px" value="2*pi + det([1,2;3,4])" />
-  <input type="submit" id="submit" value="Eval" />
-</p>
-<p>
-	Reference: <br/>
-  <textarea name="constants" id="output" cols="30" rows="10">
-Pre-defined constants:
-
-e = 2.71828...
-pi = 3.14159...
-
-Matrix notation:
-
-To define a m*n matrix with element Aij, use:
-[A11, A12, ..., A1n ; 
- A21, A22, ..., A2n ;
-         ... ; 
- Am1, Am2, ..., Amn]
-(rows are separated by ';' and elements in a row are separated by ',')
-</textarea>
-  <textarea name="functions" id="output" cols="35" rows="10">
-Real functions:
-
-abs(x)
-asin(x)
-acos(x)
-atan(x)
-atan2(x, y)
-floor(x)
-ceil(x)
-round(x)
-exp(x)
-log(x)	
-max(x1, x2, ..., xn)	
-min(x1, x2, ..., xn)		
-random()
-sin(x)
-cos(x)
-tan(x)
-
-Matrix functions:
-
-I(n)
-zeros(n)
-augment(m1, m2)
-inv(m)
-det(m)
-REF(m)
-rank(m)
-tr(m)
-transpose(m)
-</textarea>
-</p>
 </body>
-
 </html>
